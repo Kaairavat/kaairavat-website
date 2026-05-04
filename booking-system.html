@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Cab - Kaairavat Rentals</title>
+</head>
+<body>
+
+<h2>Cab Booking</h2>
+
+<form id="bookingForm">
+  <input type="text" id="pickup" placeholder="Pickup City" required><br><br>
+  <input type="text" id="drop" placeholder="Drop City" required><br><br>
+  <input type="date" id="date" required><br><br>
+
+  <select id="car">
+    <option>Swift Dzire</option>
+    <option>Ertiga</option>
+  </select><br><br>
+
+  <button type="button" onclick="calculatePrice()">Check Price</button>
+</form>
+
+<h3 id="price"></h3>
+
+<button onclick="sendWhatsApp()">Book on WhatsApp</button>
+
+<script>
+function calculatePrice() {
+  let pickup = document.getElementById("pickup").value;
+  let drop = document.getElementById("drop").value;
+
+  let price = 0;
+
+  if(pickup=="Bilaspur" && drop=="Raipur"){
+    price = 2000;
+  } else if(pickup=="Bilaspur" && drop=="Raigarh"){
+    price = 2500;
+  } else {
+    price = 3000;
+  }
+
+  document.getElementById("price").innerText = "Price: ₹" + price;
+}
+
+function sendWhatsApp(){
+  let pickup = document.getElementById("pickup").value;
+  let drop = document.getElementById("drop").value;
+  let date = document.getElementById("date").value;
+
+  let msg = `Cab Booking\nPickup: ${pickup}\nDrop: ${drop}\nDate: ${date}`;
+
+  window.open(`https://wa.me/9111427212?text=${encodeURIComponent(msg)}`);
+}
+</script>
+
+</body>
+</html>
