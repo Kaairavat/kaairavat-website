@@ -1,66 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bilaspur Taxi Service | Raipur Airport Cab | Kaairavat Rentals</title>
-<meta name="description" content="Kaairavat Rentals offers Bilaspur to Raipur airport cab, Bilaspur to Raigarh, Jagdalpur, Ambikapur taxi service across Chhattisgarh. Direct booking, no hidden charges.">
-  <style>
-    body {
-  font-family: Arial;
-  text-align: center;
+  <title>Kaairavat Rentals - Book Cab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  background-image: url('bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+  <style>
+  body {
+    font-family: Arial;
+    margin:0;
+    color:white;
+
+    /* Dark overlay + taxi background */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1502877338535-766e1452684a');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  header {
+    background: transparent;
+    text-align:center;
+    padding:20px;
+  }
+
+  .container {
+    padding:20px;
+  }
+
+  input, button {
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:5px;
+    border:none;
+  }
+
+  input {
+    background: rgba(255,255,255,0.9);
+    color:black;
+  }
+
+  button {
+    background:#ffc107;
+    color:black;
+    font-size:16px;
+    font-weight:bold;
+  }
+
+  .routes {
+    background: rgba(0,0,0,0.6);
+    padding:15px;
+    border-radius:10px;
+  }
   </style>
+
 </head>
 
 <body>
 
-<h1>🚖 Kaairavat Rentals</h1>
-<p>Instant Cab Booking in Chhattisgarh</p>
+<header>
+  <h2>🚖 Kaairavat Rentals</h2>
+  <p>Chhattisgarh Taxi Service</p>
+</header>
 
-<div class="box">
-<h2>🔍 Check Fare</h2>
+<div class="container">
 
-<input id="pickup" placeholder="Pickup City"><br><br>
-<input id="drop" placeholder="Drop City"><br><br>
+  <h3>Book Your Cab</h3>
 
-<button onclick="getPrice()">Check Price</button>
+  <input type="text" id="pickup" placeholder="Pickup Location">
+  <input type="text" id="drop" placeholder="Drop Location">
+  <input type="date" id="date">
 
-<h3 id="price"></h3>
+  <button onclick="book()">Book on WhatsApp</button>
 
-<button onclick="goBooking()">Book Now</button>
-</div>
+  <p>📞 Call Now: 9111427212</p>
 
-<div class="box">
-<h2>🔥 Popular Routes</h2>
-<p>Bilaspur → Raipur ₹2000</p>
-<p>Bilaspur → Raigarh ₹2500</p>
-<p>Bilaspur → Jagdalpur ₹6000</p>
-</div>
+  <div class="routes">
+    <h3>Popular Routes</h3>
 
-<div class="box">
-<h2>💎 Why Us</h2>
-<p>No Commission | Direct Owner | Best Price</p>
+    <p>Bilaspur → Raipur ₹2500</p>
+    <p>Bilaspur → Korba ₹1800</p>
+    <p>Bilaspur → Raigarh ₹2200</p>
+    <p>Bilaspur → Ambikapur ₹4200</p>
+    <p>Bilaspur → Sambalpur ₹4800</p>
+    <p>Bilaspur → Durg ₹2800</p>
+    <p>Bilaspur → Bhilai ₹2700</p>
+    <p>Bilaspur → Rajnandgaon ₹3900</p>
+
+  </div>
+
 </div>
 
 <script>
-function getPrice(){
-  let p = document.getElementById("pickup").value;
-  let d = document.getElementById("drop").value;
-  let price = 3000;
+function book() {
+  let pickup = document.getElementById("pickup").value;
+  let drop = document.getElementById("drop").value;
+  let date = document.getElementById("date").value;
 
-  if(p=="Bilaspur" && d=="Raipur"){price=2000;}
-  else if(p=="Bilaspur" && d=="Raigarh"){price=2500;}
-  else if(p=="Bilaspur" && d=="Jagdalpur"){price=6000;}
+  let msg = `Cab Booking:%0APickup: ${pickup}%0ADrop: ${drop}%0ADate: ${date}`;
+  let url = "https://wa.me/919111427212?text=" + msg;
 
-  document.getElementById("price").innerText = "₹ " + price;
-}
-
-function goBooking(){
-  window.location.href="booking-system.html";
+  window.open(url, "_blank");
 }
 </script>
 
