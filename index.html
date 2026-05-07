@@ -1,113 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaairavat Rentals | Taxi Service in Chhattisgarh</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kaairavat Rentals | Book Taxi Online</title>
 
-<meta name="description" content="Kaairavat Rentals provides reliable taxi service from Bilaspur, Raipur Airport, Jagdalpur, Raigarh and all major cities of Chhattisgarh & Odisha.">
+  <meta name="description" content="Kaairavat Rentals - Taxi service from Bilaspur to Raipur Airport, Jagdalpur, Raigarh, Ambikapur & all major cities in Chhattisgarh.">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-.hero-text,
-.hero-text h1,
-.hero-text p,
-.section-title,
-.service-card,
-.route-card,
-.footer,
-.footer a,
-.footer p,
-nav a{
-color:white !important;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-.booking-box input,
-.booking-box select{
-color:white !important;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
 
-.booking-box select option{
-color:black !important;
-background:white;
-}
+    body{
+      background:#0f172a;
+      color:white;
+      overflow-x:hidden;
+    }
 
-input::placeholder{
-color:#dddddd !important;
-}
+    header{
+      width:100%;
+      min-height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+      url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+    }
 
-body{
-color:white !important;
-}
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
 
-body{
-  font-family:Arial, sans-serif;
-  background:#0b1320;
-  color:BLUE;
-}
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#00d4ff;
+    }
 
-header{
-  background:#001d3d;
-  padding:15px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:25px;
+    }
 
-.logo{
-  font-size:28px;
-  font-weight:bold;
-  color:#ffb703;
-}
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      font-size:15px;
+      transition:0.3s;
+    }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
-  font-size:16px;
-}
+    nav ul li a:hover{
+      color:#00d4ff;
+    }
 
-nav a:hover{
-  color:#ffb703;
-}
+    .hero{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      height:85vh;
+      padding:20px;
+    }
 
-.hero{
-  min-height:100vh;
-  background:
-  linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px 20px;
-}
+    .hero h1{
+      font-size:65px;
+      max-width:900px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
 
-.hero-container{
-  width:100%;
-  max-width:1200px;
-  display:grid;
-  grid-template-columns:1fr 420px;
-  gap:50px;
-  align-items:center;
-}
+    .hero h1 span{
+      color:#00d4ff;
+    }
 
-.hero-text h1{
-  font-size:55px;
-  line-height:1.2;
-  margin-bottom:20px;
-}
+    .hero p{
+      font-size:18px;
+      max-width:700px;
+      color:#ddd;
+      margin-bottom:35px;
+    }
 
-.hero-text p{
-  font-size:20px;
-  line-height:1.8;
-  margin-bottom:30px;
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 32px;
+      border:none;
+      border-radius:50px;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:#00d4ff;
+      color:black;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+      background:white;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      border:2px solid #00d4ff;
+      color:white;
+    }
+
+    .btn-secondary:hover{
+      background:#00d4ff;
+      color:black;
+    }
+
+    section{
+      padding:80px 8%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .title h2{
+      font-size:40px;
+      margin-bottom:10px;
+    }
+
+    .title p{
+      color:#aaa;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#111827;
+      padding:30px;
+      border-radius:20px;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:#00d4ff;
+    }
+
+    .card h3{
+      margin:20px 0 10px;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#bbb;
+      line-height:1.7;
+    }
+
+    .routes{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px;
+    }
+
+    .route-box{
+      background:#111827;
+      border-radius:18px;
+      padding:25px;
+      border-left:5px solid #00d4ff;
+    }
+
+    .route-box h3{
+      margin-bottom:15px;
+      color:#00d4ff;
+    }
+
+    .route-box p{
+      margin:8px 0;
+      color:#ddd;
+    }
+
+    .booking{
+      background:#111827;
+      border-radius:25px;
+      padding:40px;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .booking form{
+      display:grid;
+      gap:20px;
+    }
+
+    .booking input,
+    .booking textarea{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:12px;
+      background:#1f2937;
+      color:white;
+      font-size:15px;
+    }
+
+    .booking textarea{
+      height:120px;
+      resize:none;
+    }
+
+    .booking button{
+      padding:15px;
+      border:none;
+      border-radius:12px;
+      background:#00d4ff;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    footer{
+      background:black;
+      padding:30px;
+      text-align:center;
+      color:#888;
+      margin-top:60px;
+    }
+
+    .contact{
+      margin-top:15px;
+      line-height:2;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <nav>
+    <div class="logo">KA AIRAVAT RENTALS</div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#routes">Routes</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h1>Premium Taxi Service <span>Across Chhattisgarh</span></h1>
+
+    <p>
+      Bilaspur to Raipur Airport, Jagdalpur, Raigarh, Ambikapur,
+      Durg, Bhilai & all major cities.
+      Fast booking • Clean cars • Professional drivers.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="https://wa.me/919111427212" class="btn btn-primary">
+        Book on WhatsApp
+      </a>
+
+      <a href="#booking" class="btn btn-secondary">
+        Book Your Cab
+      </a>
+    </div>
+  </div>
+
+</header>
+
+<section id="services">
+
+  <div class="title">
+    <h2>Our Services</h2>
+    <p>Affordable & luxury cab services</p>
+  </div>
+
+  <div class="services">
+
+    <div class="card">
+      <h3>Airport Transfer</h3>
+      <p>
+        Raipur Airport pickup & drop service with fixed rates and 24x7 availability.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Outstation Taxi</h3>
+      <p>
+        Travel from Bilaspur to Raigarh, Jagdalpur, Ambikapur and all CG cities.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Round Trip</h3>
+      <p>
+        Comfortable round trip packages for family, business and tourism rides.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Luxury Cars</h3>
+      <p>
+        Sedan, Ertiga, Innova Crysta & SUV available at affordable prices.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="routes">
+
+  <div class="title">
+    <h2>Popular Routes</h2>
+    <p>Best taxi fare prices</p>
+  </div>
+
+  <div class="routes">
+
+    <div class="route-box">
+      <h3>Bilaspur → Raipur Airport</h3>
+      <p>Hatchback : ₹1900</p>
+      <p>Sedan : ₹2100</p>
+      <p>SUV : ₹2700</p>
+    </div>
+
+    <div class="route-box">
+      <h3>Bilaspur → Raigarh</h3>
+      <p>Sedan : ₹2500</p>
+      <p>Ertiga : ₹3200</p>
+      <p>Innova : ₹4200</p>
+    </div>
+
+    <div class="route-box">
+      <h3>Bilaspur → Jagdalpur</h3>
+      <p>Sedan : ₹6500</p>
+      <p>Ertiga : ₹8500</p>
+      <p>Innova : ₹10500</p>
+    </div>
+
+    <div class="route-box">
+      <h3>Bilaspur → Ambikapur</h3>
+      <p>Sedan : ₹4200</p>
+      <p>Ertiga : ₹5200</p>
+      <p>Innova : ₹6500</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="booking">
+
+  <div class="title">
+    <h2>Book Your Cab</h2>
+    <p>Quick online booking</p>
+  </div>
+
+  <div class="booking">
+
+    <form>
+
+      <input type="text" placeholder="Your Name" required>
+
+      <input type="tel" placeholder="Mobile Number" required>
+
+      <input type="text" placeholder="Pickup Location" required>
+
+      <input type="text" placeholder="Drop Location" required>
+
+      <textarea placeholder="Trip Details"></textarea>
+
+      <button type="submit">
+        Submit Booking
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<footer id="contact">
+
+  <h2>KA AIRAVAT RENTALS</h2>
+
+  <div class="contact">
+    📞 9111427212 <br>
+    📧 kaairavatcarrentalscg@gmail.com <br>
+    🌐 https://www.kaairavatrentals.in
+  </div>
+
+  <p style="margin-top:20px;">
+    © 2026 Ka Airavat Rentals. All Rights Reserved.
+  </p>
+
+</footer>
+
+</body>
 </html>
